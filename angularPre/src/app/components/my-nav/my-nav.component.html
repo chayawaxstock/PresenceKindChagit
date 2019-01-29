@@ -1,32 +1,34 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav  #drawer class="sidenav" fixedInViewport="true"
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="!(isHandset$ | async)">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content #right style="margin-left: 0px !important" position="end" >
-    <mat-toolbar color="primary" style="position: relative;
-    top: -19px;">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">תפריט</mat-icon>
-      </button>
-      <span style="margin-right: 16vw;"></span>
-      <span style="margin-right: 16vw;">כניסה</span>
-      <span style="margin-right: 16vw;">הרשמה</span>
+<div style="height: 100vh;"> 
+  <mat-toolbar color="primary">
+      <div fxShow="true" fxHide.gt-sm="true">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>תפריט</mat-icon>
+        </button>
+      </div>
+      <a mat-button class="companyName" routerLink="/">
+        <span>גנוני</span>
+      </a>
+      <span class="example-spacer"></span>
+      <div fxShow="true" fxHide.lt-md="true">   
+        <a mat-button routerLink="/prices">כניסה</a>
+        <a mat-button routerLink="/prices">הרשמה</a>    
+        <a mat-button routerLink="/start-page">דף הבית</a>
+        <a mat-button routerLink="/contact">יצירת קשר</a>
+        <a mat-button routerLink="/about-us">אודותינו</a>     
+      </div>
     </mat-toolbar>
-
-    <!-- Add Content Here -->
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
+    <mat-sidenav-container fxFlexFill class="example-container">
+      <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+        <div fxLayout="column">
+        <a mat-button routerLink="/prices">כניסה</a>
+        <a mat-button routerLink="/prices">הרשמה</a>    
+        <a mat-button routerLink="/start-page">דף הבית</a>
+        <a mat-button routerLink="/contact">יצירת קשר</a>
+        <a mat-button routerLink="/about-us">אודותינו</a>  
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content fxFlexFill>  
+        <app-login></app-login>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
