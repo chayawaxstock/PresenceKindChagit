@@ -7,10 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyNavComponent } from './components/my-nav/my-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule }   from '@angular/forms';
-import { MatToolbarModule,MatStepperModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatListModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatToolbarModule,MatStepperModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatListModule, MatCheckboxModule, MatRadioModule } from '@angular/material';
 import { RegisterTeacherComponent } from './components/registerTeacher/registerTeacher.component';
 import { TeacherService } from './shared/services/teacher.service';
+import { HellperService } from './shared/services/hellper.service';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,15 @@ import { TeacherService } from './shared/services/teacher.service';
     MyNavComponent,LoginComponent,RegisterTeacherComponent
   ],
   imports: [
+    MatRadioModule,
+    MatCheckboxModule,
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
     MatDialogModule,
     MatTableModule,
+    ReactiveFormsModule,
     MatMenuModule,
     MatIconModule,MatStepperModule,
     MatProgressSpinnerModule, MatSidenavModule, MatListModule,
@@ -33,7 +37,7 @@ import { TeacherService } from './shared/services/teacher.service';
     FlexLayoutModule
     ,FormsModule
   ],
-  providers: [TeacherService],
+  providers: [TeacherService,HellperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

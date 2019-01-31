@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { validatePassword } from 'src/app/shared/helpers';
+import { Teacher } from 'src/app/shared/models/teacher';
+import { Kindergarten } from 'src/app/shared/models/kindergarten';
+import { HellperService } from 'src/app/shared/services/hellper.service';
 
 @Component({
   selector: 'app-registerTeacher',
@@ -9,32 +13,26 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class RegisterTeacherComponent implements OnInit {
 
   showSpinner = false;
-  username: string;
-  password: string;
-
-  registerForm: FormGroup;
+  confirmPassword: string;
   submitted = false;
-  formGroup: FormGroup;
-  obj: typeof Object = Object;
+  newTeacher:Teacher=new Teacher();
+  isNewKindgarden:boolean=false;
+  kindergarten:Kindergarten=new Kindergarten();
+  allKinderGardens:Kindergarten[]=[]
 
+  constructor(private hellperService:HellperService) {
 
-  constructor(private formBuilder: FormBuilder) { }
+   }
 
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      phone:[''],
-      tell:[''],
-      age:[0],
-      kindergartenId:[],
-      areaId:[],
-      confirmPassword: ['', Validators.required]
-    }, {
-        //validator: MustMatch('password', 'confirmPassword')
-      });
+
+    this.hellperService.getAllKindergarden().subscribe(data=>{
+           this.allKinderGardens=data;
+    })
+    // this.registerForm = this.formBuilder.group({
+    //   kindergartenId:[],
+    //   areaId:[],
+  
   }
   
 }

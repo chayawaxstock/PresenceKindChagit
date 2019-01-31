@@ -6,20 +6,73 @@
     <form class="example-form">
       <table class="example-full-width" cellspacing="0">
         <tr>
-          <td >
+          <td>
             <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+              <input matInput type="text" placeholder="שם פרטי" [(ngModel)]="newTeacher.name" name="name" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput type="text" placeholder="שם משפחה" [(ngModel)]="newTeacher.lastName" name="lastName" required>
             </mat-form-field>
           </td>
         </tr>
         <tr>
-        <td ><mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
-        </mat-form-field></td>
-      </tr></table>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput type="email" placeholder="מייל" [(ngModel)]="newTeacher.lastName" name="lastName" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput type="tel" placeholder="טלפון" [(ngModel)]="newTeacher.tell" name="lastName" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput type="tel" placeholder="פלאפון" [(ngModel)]="newTeacher.phone" name="lastName" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput type="number" placeholder="גיל" [(ngModel)]="newTeacher.age" name="lastName" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="סיסמה" [(ngModel)]="newTeacher.password" type="password" name="password" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="אישור סיסמה" [(ngModel)]="confirmPassword" type="password" name="password" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <section class="example-section">
+            <label class="example-margin">גננת ב: </label>          
+              <mat-radio-group [(ngModel)]="isNewKindgarden" name="radio">
+                <mat-radio-button [value]="false" >גן קים</mat-radio-button>
+                <mat-radio-button [value]="true">גן חדש</mat-radio-button>
+              </mat-radio-group>
+          </section>
+        </td>
+        </tr>
+        <tr *ngIf="!isNewKindgarden">
+          not isNewKindgarden
+          <div *ngFor="let kinder of allKinderGardens">{{kinder.name}}</div>
+        </tr>
+        <tr *ngIf="isNewKindgarden">
+            isNewKindgarden
+        </tr>
+      </table>
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button  color="primary">Login</button>
+    <button mat-raised-button color="primary">הרשמה</button>
   </mat-card-actions>
 </mat-card>
