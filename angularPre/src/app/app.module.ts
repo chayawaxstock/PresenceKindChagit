@@ -12,7 +12,7 @@ import { MatToolbarModule,MatStepperModule, MatButtonModule, MatCardModule, MatI
 import { RegisterTeacherComponent } from './components/registerTeacher/registerTeacher.component';
 import { TeacherService } from './shared/services/teacher.service';
 import { HellperService } from './shared/services/hellper.service';
-
+import { HttpClientModule } from  '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +35,7 @@ import { HellperService } from './shared/services/hellper.service';
     BrowserAnimationsModule,
     LayoutModule,
     FlexLayoutModule
-    ,FormsModule
+    ,FormsModule,HttpClientModule
   ],
   providers: [TeacherService,HellperService],
   bootstrap: [AppComponent]
