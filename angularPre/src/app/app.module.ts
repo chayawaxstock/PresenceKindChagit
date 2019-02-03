@@ -17,10 +17,11 @@ import { NewKindergardenComponent } from './components/new-kindergarden/new-kind
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { DashboardPresencesComponent } from './components/dashboardPresences/dashboardPresences.component';
 import { PrecencesImageChildComponent } from './components/precencesImageChild/precencesImageChild.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent,DashboardPresencesComponent,PrecencesImageChildComponent,
+    AppComponent,DashboardPresencesComponent,PrecencesImageChildComponent,HomeComponent,
     MyNavComponent,LoginComponent,RegisterTeacherComponent,NewKindergardenComponent
   ],
   imports: [
