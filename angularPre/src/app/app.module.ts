@@ -8,7 +8,7 @@ import { MyNavComponent } from './components/my-nav/my-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatToolbarModule,MatStepperModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatListModule, MatCheckboxModule, MatRadioModule } from '@angular/material';
+import { MatToolbarModule,MatStepperModule, MatButtonModule,MatAutocompleteModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatListModule, MatCheckboxModule, MatRadioModule } from '@angular/material';
 import { RegisterTeacherComponent } from './components/registerTeacher/registerTeacher.component';
 import { TeacherService } from './shared/services/teacher.service';
 import { HellperService } from './shared/services/hellper.service';
@@ -19,6 +19,7 @@ import { HttpClientModule } from  '@angular/common/http';
     MyNavComponent,LoginComponent,RegisterTeacherComponent
   ],
   imports: [
+    MatAutocompleteModule,
     MatRadioModule,
     MatCheckboxModule,
     MatToolbarModule,

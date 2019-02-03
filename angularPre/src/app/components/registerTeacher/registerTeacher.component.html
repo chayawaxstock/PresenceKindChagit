@@ -62,21 +62,30 @@
           </section>
         </td>
         </tr>
+        
         <tr *ngIf="!isNewKindgarden">
-            <mat-form-field>
-                <input type="text" matInput placeholder="States Group" formControlName="stateGroup" required [matAutocomplete]="autoGroup">
-                  <mat-autocomplete #autoGroup="matAutocomplete">
-                    <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
-                      <mat-option *ngFor="let name of group.names" [value]="name">
-                        {{name}}
+          <td>
+              <form class="example-form">
+                  <mat-form-field class="example-full-width">
+                    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option}}
                       </mat-option>
-                  </mat-optgroup>
-                </mat-autocomplete>
-              </mat-form-field>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                </form>               
+          </td>
           not isNewKindgarden
           <div *ngFor="let kinder of allKinderGardens">{{kinder.name}}</div>
         </tr>
         <tr *ngIf="isNewKindgarden">
+          <td>
+           
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="אישור סיסמה" [(ngModel)]="kindergarten." type="password" name="password" required>
+                </mat-form-field>
+          </td>
             isNewKindgarden
         </tr>
       </table>
@@ -86,3 +95,4 @@
     <button mat-raised-button color="primary">הרשמה</button>
   </mat-card-actions>
 </mat-card>
+  
