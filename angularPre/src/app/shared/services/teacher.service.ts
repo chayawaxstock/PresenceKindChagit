@@ -22,7 +22,7 @@ addNewTeacher(teacher:Teacher): Observable<boolean> {
   throw new Error("Method not implemented.");
 }
 login(password,email):Observable<Teacher>{
-   return this.http.post<Teacher>("logIn",{email,password})
+   return this.http.post<Teacher>(API+"logIn",{email,password})
 }
 
 }

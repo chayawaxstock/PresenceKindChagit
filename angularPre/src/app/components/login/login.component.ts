@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
+    debugger;
     this.teacherService.login(this.password, this.email).subscribe(
       data => {
         if (data == null)
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
       title: 'אופס...!',
       text: message,
       showConfirmButton: false,
-      timer: 1500
+      timer: 2500
     })
   }
 
