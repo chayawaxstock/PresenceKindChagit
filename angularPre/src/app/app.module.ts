@@ -8,17 +8,23 @@ import { MyNavComponent } from './components/my-nav/my-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatToolbarModule,MatStepperModule, MatButtonModule,MatAutocompleteModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatListModule, MatCheckboxModule, MatRadioModule } from '@angular/material';
+import { MatToolbarModule,MatSelectModule,MatStepperModule, MatButtonModule,MatAutocompleteModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatListModule, MatCheckboxModule, MatRadioModule } from '@angular/material';
 import { RegisterTeacherComponent } from './components/registerTeacher/registerTeacher.component';
 import { TeacherService } from './shared/services/teacher.service';
 import { HellperService } from './shared/services/hellper.service';
 import { HttpClientModule } from  '@angular/common/http';
+import { NewKindergardenComponent } from './components/new-kindergarden/new-kindergarden.component';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { DashboardPresencesComponent } from './components/dashboardPresences/dashboardPresences.component';
+import { PrecencesImageChildComponent } from './components/precencesImageChild/precencesImageChild.component';
+
 @NgModule({
   declarations: [
-    AppComponent,
-    MyNavComponent,LoginComponent,RegisterTeacherComponent
+    AppComponent,DashboardPresencesComponent,PrecencesImageChildComponent,
+    MyNavComponent,LoginComponent,RegisterTeacherComponent,NewKindergardenComponent
   ],
   imports: [
+    MatSelectModule,
     MatAutocompleteModule,
     MatRadioModule,
     MatCheckboxModule,
@@ -36,7 +42,7 @@ import { HttpClientModule } from  '@angular/common/http';
     BrowserAnimationsModule,
     LayoutModule,
     FlexLayoutModule
-    ,FormsModule,HttpClientModule
+    ,FormsModule,HttpClientModule, DropDownsModule
   ],
   providers: [TeacherService,HellperService],
   bootstrap: [AppComponent]

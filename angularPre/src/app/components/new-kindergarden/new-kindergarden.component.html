@@ -1,1 +1,95 @@
 
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput type="text" placeholder="שם" [(ngModel)]="kindergarden.name" name="name" required>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput type="number" placeholder="קוד גן " [(ngModel)]="kindergarden.code" name="code" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput type="email" placeholder="טלפון" [(ngModel)]="kindergarden.tell" name="tell" required>
+              </mat-form-field>
+            </td>
+            <td>  
+                 <mat-form-field>
+                    <input type="text" placeholder="בחר עיר" matInput [(ngModel)]="city.cityId" [matAutocomplete]="auto" >
+                  </mat-form-field>
+                  
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option (onSelectionChange)="changeCity(option.cityId)" *ngFor="let option of cities" [value]="option.cityId">{{option.name}}</mat-option>
+                  </mat-autocomplete>
+             
+              </td>
+            <td>
+              
+                <mat-form-field>
+                    <input type="text" placeholder="בחר אזור" matInput [(ngModel)]="kindergarden.areaId" [matAutocomplete]="auto1">
+                  </mat-form-field>
+                  
+                  <mat-autocomplete #auto1="matAutocomplete">
+                    <mat-option *ngFor="let option of city.areas" [value]="option.areaId">{{option.areaName}}</mat-option>
+                  </mat-autocomplete>
+            </td>
+            <td>
+                <mat-form-field>
+                    <input type="text" placeholder="בחר שפה" matInput [(ngModel)]="kindergarden.languageId" [matAutocomplete]="auto2">
+                  </mat-form-field>
+                  
+                  <mat-autocomplete #auto2="matAutocomplete">
+                    <mat-option *ngFor="let option of languge" [value]="option.languageId">{{option.languageName}}</mat-option>
+                  </mat-autocomplete>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <h4>בחר שכבת גיל</h4>
+                <mat-form-field>
+                  <mat-select placeholder="בחר שכבת גיל" [(ngModel)]="kindergarden.layerId">
+                    <mat-option *ngFor="let layer1 of layers" [value]="layer1.layerId">
+                      {{layer1.layerName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+           
+            </td>
+            <td>
+              שעות פעילות הגן:
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder=" משעה" [(ngModel)]="kindergarden.fromHour" type="password" name="password" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput type="number" placeholder="עד שעה" [(ngModel)]="kindergarden.tillHour" name="lastName" required>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="כתובת" [(ngModel)]="kindergarden.address" type="password" name="password" required>
+              </mat-form-field>
+            </td>
+            <td>
+
+                <mat-form-field>
+                    <mat-select placeholder="בחר שיכות" [(ngModel)]="kindergarden.belongingId">
+                      <mat-option *ngFor="let belong of belongs" [value]="belong.belongingId">
+                        {{belong.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+              </td>
+           
+          </tr>
+
+
+    
+  

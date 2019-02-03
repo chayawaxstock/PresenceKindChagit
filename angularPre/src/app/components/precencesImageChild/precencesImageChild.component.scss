@@ -1,0 +1,28 @@
+.imageChild{
+    width: 130px;
+    height: 100px;
+    margin: 12px 12px 12px 12px;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+    float: right;
+  }
+  
+  .centered {
+    position: absolute;
+    top: 76%;
+    font-size: 18px;
+    left: 32%;
+    transform: translate(-50%, -50%);
+
+  }
+  .centered1 {
+    position: absolute;
+    top: 78%;
+    font-size: 18px;
+    left: 85%;
+    transform: translate(-50%, -50%);
+  }

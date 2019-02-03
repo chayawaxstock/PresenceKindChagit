@@ -13,14 +13,16 @@
           </td>
           <td>
             <mat-form-field class="example-full-width">
-              <input matInput type="text" placeholder="שם משפחה" [(ngModel)]="newTeacher.lastName" name="lastName" required>
+              <input matInput type="text" placeholder="שם משפחה" [(ngModel)]="newTeacher.lastName" name="lastName"
+                required>
             </mat-form-field>
           </td>
         </tr>
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <input matInput type="email" placeholder="מייל" [(ngModel)]="newTeacher.lastName" name="lastName" required>
+              <input matInput type="email" placeholder="מייל" [(ngModel)]="newTeacher.email" name="lastName"
+                required>
             </mat-form-field>
           </td>
           <td>
@@ -42,57 +44,53 @@
           </td>
           <td>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="סיסמה" [(ngModel)]="newTeacher.password" type="password" name="password" required>
+              <input matInput placeholder="סיסמה" [(ngModel)]="newTeacher.password" type="password" name="password"
+                required>
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="אישור סיסמה" [(ngModel)]="confirmPassword" type="password" name="password" required>
+              <input matInput placeholder="אישור סיסמה" [(ngModel)]="confirmPassword" type="password" name="password"
+                required>
             </mat-form-field>
           </td>
         </tr>
         <tr>
           <td>
-          <section class="example-section">
-            <label class="example-margin">גננת ב: </label>          
+            <section class="example-section">
+              <label class="example-margin">גננת ב: </label>
               <mat-radio-group [(ngModel)]="isNewKindgarden" name="radio">
-                <mat-radio-button [value]="false" >גן קים</mat-radio-button>
+                <mat-radio-button [value]="false">גן קים</mat-radio-button>
                 <mat-radio-button [value]="true">גן חדש</mat-radio-button>
               </mat-radio-group>
-          </section>
-        </td>
+            </section>
+          </td>
         </tr>
-        
+
         <tr *ngIf="!isNewKindgarden">
           <td>
-              <form class="example-form">
-                  <mat-form-field class="example-full-width">
-                    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
-                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                        {{option}}
-                      </mat-option>
-                    </mat-autocomplete>
-                  </mat-form-field>
-                </form>               
+            <form class="example-form">
+              <mat-form-field class="example-full-width">
+                <input type="text" placeholder="Pick one" aria-label="Number" matInput [(ngModel)]="newTeacher.kindergartenId" [formControl]="myControl"
+                  [matAutocomplete]="auto">
+                <mat-autocomplete  #auto="matAutocomplete">
+                  <mat-option  *ngFor="let option of filteredOptions | async" [value]="option" (onSelectionChange)="onSelectionChange(option)">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </form>
           </td>
           not isNewKindgarden
-          <div *ngFor="let kinder of allKinderGardens">{{kinder.name}}</div>
         </tr>
-        <tr *ngIf="isNewKindgarden">
-          <td>
-           
-              <mat-form-field class="example-full-width">
-                  <input matInput placeholder="אישור סיסמה" [(ngModel)]="kindergarten." type="password" name="password" required>
-                </mat-form-field>
-          </td>
-            isNewKindgarden
-        </tr>
+        <div *ngIf="isNewKindgarden">
+          <app-new-kindergarden [kindergarden]="newTeacher.kindergarten"></app-new-kindergarden>
+          isNewKindgarden
+        </div>
       </table>
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary">הרשמה</button>
+    <button mat-raised-button color="primary" (click)="addNewTeacher()">הרשמה</button>
   </mat-card-actions>
 </mat-card>
-  

@@ -10,25 +10,27 @@
       </a>
       <span class="example-spacer"></span>
       <div fxShow="true" fxHide.lt-md="true">   
-        <a mat-button routerLink="/prices">כניסה</a>
-        <a mat-button routerLink="/prices">הרשמה</a>    
-        <a mat-button routerLink="/start-page">דף הבית</a>
-        <a mat-button routerLink="/contact">יצירת קשר</a>
-        <a mat-button routerLink="/about-us">אודותינו</a>     
+          <a mat-button routerLink="/login">כניסה</a>
+          <a mat-button routerLink="/register">הרשמה</a>    
+          <a mat-button routerLink="/start-page">דף הבית</a>
+          <a mat-button routerLink="/contact">יצירת קשר</a>
+          <a mat-button routerLink="/dashboard-presences">נוכחות</a>   
       </div>
     </mat-toolbar>
     <mat-sidenav-container fxFlexFill class="example-container">
       <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
         <div fxLayout="column">
-        <a mat-button routerLink="/prices">כניסה</a>
-        <a mat-button routerLink="/prices">הרשמה</a>    
+        <a mat-button routerLink="/login">כניסה</a>
+        <a mat-button routerLink="/register">הרשמה</a>    
         <a mat-button routerLink="/start-page">דף הבית</a>
         <a mat-button routerLink="/contact">יצירת קשר</a>
-        <a mat-button routerLink="/about-us">אודותינו</a>  
+        <a mat-button routerLink="/dashboard-presences">נוכחות</a>  
         </div>
       </mat-sidenav>
       <mat-sidenav-content fxFlexFill>  
-        <app-registerTeacher></app-registerTeacher>
+        <router-outlet></router-outlet>
+<!-- <app-dashboardPresences></app-dashboardPresences> -->
+        <!-- <app-registerTeacher></app-registerTeacher> -->
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>

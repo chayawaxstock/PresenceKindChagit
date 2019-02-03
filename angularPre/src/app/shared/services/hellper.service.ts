@@ -3,18 +3,30 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Kindergarten } from '../models/kindergarten';
 import { environment } from 'src/environments/environment';
+import { City } from '../models/city';
+import { Language } from '../models/language';
 
 const API=environment.api_url+"hellper/"
 @Injectable({
   providedIn: 'root'
 })
 export class HellperService {
-
+ 
 constructor(private http:HttpClient) { }
 
 getAllKindergarden():Observable<Kindergarten[]>
 {
   return this.http.get<Kindergarten[]>(API+"GetAllKindergartens");
+}
+
+getAllCities():Observable<City[]>
+{
+  return this.http.get<City[]>(API+"GetAllCities");
+}
+
+getAllLanguge():Observable<Language[]>
+{
+  return this.http.get<Language[]>(API+"GetAllLanguge");
 }
 
 }

@@ -6,6 +6,7 @@ import { Kindergarten } from 'src/app/shared/models/kindergarten';
 import { HellperService } from 'src/app/shared/services/hellper.service';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
+import { TeacherService } from 'src/app/shared/services/teacher.service';
 
 @Component({
   selector: 'app-registerTeacher',
@@ -27,7 +28,8 @@ export class RegisterTeacherComponent implements OnInit {
   filteredOptions: Observable<string[]>;
 
 
-  constructor(private hellperService:HellperService) {
+  constructor(private hellperService:HellperService,
+    public teacherService:TeacherService) {
 
    }
 
@@ -55,5 +57,21 @@ export class RegisterTeacherComponent implements OnInit {
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
+
+  onSelectionChange(select:string)
+  {  
+   this.newTeacher.kindergartenId=this.allKinderGardens.find(p=>p.name==select).kindergartenId;
+  }
+  addNewTeacher()
+  {
+    debugger;
+    this.teacherService.addNewTeacher(this.newTeacher).subscribe(ans=>{
+    },err=>{
+
+    });
+   
+  }
   
 }
+
+

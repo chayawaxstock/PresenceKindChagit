@@ -1,0 +1,11 @@
+<div class="container">
+  <img #divElement src="../../../assets/11963148-happy-child-kids-group-have-fun-and-play-at-kindergarden-indoor-preschool-education-concept-with-tea.jpg"
+    class="imageChild" (click)="clickImage(divElement)">
+  <div class="centered">{{child}}
+  </div>
+  <div class="centered1" *ngIf="isclick">
+  <i class="material-icons" style="color: greenyellow;">
+      done_outline
+    </i>
+  </div>
+</div>
