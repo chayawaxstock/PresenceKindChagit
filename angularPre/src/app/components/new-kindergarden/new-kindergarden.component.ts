@@ -51,6 +51,7 @@ export class NewKindergardenComponent implements OnInit {
 
   changeCity(id:number)
   {
+    debugger;
     this.city=this.cities.find(p=>p.cityId==id);
   }
 
