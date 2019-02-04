@@ -19,7 +19,7 @@ addKindergarden(kindergarden:Kindergarten): Observable<boolean> {
   throw new Error("Method not implemented.");
 }
 addNewTeacher(teacher:Teacher): Observable<boolean> {
-  throw new Error("Method not implemented.");
+  return this.http.post<boolean>(API+"addTeacher",teacher);
 }
 login(password,email):Observable<Teacher>{
    return this.http.post<Teacher>(API+"logIn",{email,password})

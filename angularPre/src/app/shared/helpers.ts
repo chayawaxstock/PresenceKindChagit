@@ -33,6 +33,14 @@ export function validateDateEnd(group: FormGroup) {
     return null;
 }
 
+export function validateHour(group: FormGroup) {
+    var pw = group.controls['fromHour'];
+    var pw2 = group.controls['tillHour'];
+    if (pw && pw2)
+        pw.value > pw2.value ? pw2.setErrors({ 'incorrect': "from hour after of till hour" }) : pw2.clearValidators();
+    return null;
+}
+
 export function validatePassword(group: FormGroup) {
     var pw = group.controls['password'];
     var pw2 = group.controls['confirmPassword'];

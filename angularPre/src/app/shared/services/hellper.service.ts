@@ -5,12 +5,16 @@ import { Kindergarten } from '../models/kindergarten';
 import { environment } from 'src/environments/environment';
 import { City } from '../models/city';
 import { Language } from '../models/language';
+import { Layer } from '../models/layer';
+import { Belonging } from '../models/belonging';
 
 const API=environment.api_url+"hellper/"
 @Injectable({
   providedIn: 'root'
 })
 export class HellperService {
+ 
+ 
  
 constructor(private http:HttpClient) { }
 
@@ -27,6 +31,14 @@ getAllCities():Observable<City[]>
 getAllLanguge():Observable<Language[]>
 {
   return this.http.get<Language[]>(API+"GetAllLanguge");
+}
+
+getAllLayers(): Observable<Layer[]> {
+  return this.http.get<Layer[]>(API+"GetAllLayers");
+}
+
+getAllBelongs(): Observable<Belonging[]> {
+  return this.http.get<Belonging[]>(API+"GetAllBelonging");
 }
 
 }
