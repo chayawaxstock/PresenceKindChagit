@@ -7,6 +7,7 @@ import { City } from '../models/city';
 import { Language } from '../models/language';
 import { Layer } from '../models/layer';
 import { Belonging } from '../models/belonging';
+import { Kind } from '../models/kind';
 
 const API=environment.api_url+"hellper/"
 @Injectable({
@@ -39,6 +40,10 @@ getAllLayers(): Observable<Layer[]> {
 
 getAllBelongs(): Observable<Belonging[]> {
   return this.http.get<Belonging[]>(API+"GetAllBelonging");
+}
+
+getAllKinds(): Observable<Kind[]> {
+  return this.http.get<Kind[]>(API+"GetAllKinds");
 }
 
 }

@@ -21,8 +21,7 @@
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <input matInput type="email" placeholder="מייל" [(ngModel)]="newTeacher.email" name="lastName"
-                required>
+              <input matInput type="email" placeholder="מייל" [(ngModel)]="newTeacher.email" name="lastName" required>
             </mat-form-field>
           </td>
           <td>
@@ -56,12 +55,28 @@
           </td>
         </tr>
         <tr>
+            <td>
+                <mat-form-field>
+                  <mat-select placeholder="בחר עיר " [(ngModel)]="city.cityId" name="name">
+                      <mat-option (onSelectionChange)="changeCity(option.cityId)" *ngFor="let option of cities" [value]="option.cityId">{{option.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>    
+            </td>
+              <td>
+                  <mat-form-field>
+                    <mat-select placeholder="בחר אזור " [(ngModel)]="newTeacher.areaId" name="name">
+                        <mat-option *ngFor="let option of city.areas" [value]="option.areaId">{{option.areaName}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>    
+              </td>
+        </tr>
+        <tr>
           <td>
             <section class="example-section">
               <label class="example-margin">גננת ב: </label>
               <mat-radio-group [(ngModel)]="isNewKindgarden" name="radio">
                 <mat-radio-button [value]="false">גן קים</mat-radio-button>
-                <mat-radio-button [value]="true">גן חדש</mat-radio-button>
+                <mat-radio-button [value]="true" (click)="openDialog()">גן חדש</mat-radio-button>
               </mat-radio-group>
             </section>
           </td>
@@ -71,22 +86,16 @@
           <td>
             <form class="example-form">
               <mat-form-field class="example-full-width">
-                <input type="text" placeholder="Pick one" aria-label="Number" matInput [(ngModel)]="newTeacher.kindergartenId" [formControl]="myControl"
-                  [matAutocomplete]="auto">
-                <mat-autocomplete  #auto="matAutocomplete">
-                  <mat-option  *ngFor="let option of filteredOptions | async" [value]="option" (onSelectionChange)="onSelectionChange(option)">
-                    {{option}}
+                <mat-select placeholder="בחר גן" [(ngModel)]="newTeacher.kindergartenId" name="name">
+                  <mat-option *ngFor="let Kinder of allKinderGardens" [value]="Kinder.kindergartenId">
+                    {{Kinder.name}}
                   </mat-option>
-                </mat-autocomplete>
+                </mat-select>
               </mat-form-field>
             </form>
           </td>
           not isNewKindgarden
         </tr>
-        <div *ngIf="isNewKindgarden">
-          <app-new-kindergarden [kindergarden]="newTeacher.kindergarten"></app-new-kindergarden>
-          isNewKindgarden
-        </div>
       </table>
     </form>
   </mat-card-content>

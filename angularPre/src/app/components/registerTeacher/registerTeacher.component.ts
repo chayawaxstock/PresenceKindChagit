@@ -7,6 +7,9 @@ import { HellperService } from 'src/app/shared/services/hellper.service';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { TeacherService } from 'src/app/shared/services/teacher.service';
+import { MatDialog } from '@angular/material';
+import { NewKindergardenComponent } from '../new-kindergarden/new-kindergarden.component';
+import { City } from 'src/app/shared/models/city';
 
 @Component({
   selector: 'app-registerTeacher',
@@ -23,55 +26,53 @@ export class RegisterTeacherComponent implements OnInit {
   kindergarten:Kindergarten=new Kindergarten();
   allKinderGardens:Kindergarten[]=[];
 
-  myControl = new FormControl();
-  options: string[] = [];
-  filteredOptions: Observable<string[]>;
+  cities:City[]=[];
+  city:City=new City();
 
 
   constructor(private hellperService:HellperService,
-    public teacherService:TeacherService) {
+    public teacherService:TeacherService,
+    public dialog: MatDialog) {
 
    }
 
   ngOnInit() {
 
+    this.hellperService.getAllCities().subscribe(data=>{
+      this.cities=data;
+    });
+
     this.hellperService.getAllKindergarden().subscribe(data=>{
            this.allKinderGardens=data;
-           this.options= this.allKinderGardens.map(a => a.name);
     })
-    // this.registerForm = this.formBuilder.group({
-    //   kindergartenId:[],
-    //   areaId:[],
-
-
-    this.filteredOptions = this.myControl.valueChanges
-    .pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
-  
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  changeCity(id:number)
+  {
+    this.city=this.cities.find(p=>p.cityId==id);
   }
 
-  onSelectionChange(select:string)
-  {  
-   this.newTeacher.kindergartenId=this.allKinderGardens.find(p=>p.name==select).kindergartenId;
-  }
   addNewTeacher()
   {
     debugger;
     this.teacherService.addNewTeacher(this.newTeacher).subscribe(ans=>{
     },err=>{
-
     });
-   
   }
-  
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(NewKindergardenComponent, {
+      // width: '250px',
+      data: {kindergarden:this.kindergarten }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      debugger;
+      console.log('The dialog was closed');
+      this.newTeacher.kindergarten = result;
+      this.newTeacher.kindergartenId=0;
+    });
+  }
 }
 
 

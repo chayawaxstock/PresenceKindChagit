@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Kindergarten } from 'src/app/shared/models/kindergarten';
 import { City } from 'src/app/shared/models/city';
 import { HellperService } from 'src/app/shared/services/hellper.service';
@@ -7,6 +7,8 @@ import { Layer } from 'src/app/shared/models/layer';
 import { Belonging } from 'src/app/shared/models/belonging';
 import { FormGroup, FormControl } from '@angular/forms';
 import { createValidatorText, createValidatorNumber, validateHour } from 'src/app/shared/helpers';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Kind } from 'src/app/shared/models/kind';
 
 @Component({
   selector: 'app-new-kindergarden',
@@ -22,13 +24,19 @@ export class NewKindergardenComponent implements OnInit {
   obj: typeof Object = Object;
 
   cities:City[]=[];
-  languge:Language[]=[];
+  languges:Language[]=[];
   layers:Layer[]=[];
   belongs:Belonging[]=[]
+  kinds:Kind[]=[];
 
   city:City=new City();
 
-  constructor(public helperService:HellperService) { }
+  constructor(
+    public dialogRef: MatDialogRef<NewKindergardenComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Kindergarten,
+    public helperService:HellperService) {}
+
+ 
 
   ngOnInit() {
 
@@ -36,8 +44,12 @@ export class NewKindergardenComponent implements OnInit {
       this.cities=data;
     });
 
+    this.helperService.getAllKinds().subscribe(data=>{
+      this.kinds=data;
+    });
+
     this.helperService.getAllLanguge().subscribe(data=>{
-      this.languge=data;
+      this.languges=data;
     });
 
     this.helperService.getAllLayers().subscribe(data=>{
@@ -53,11 +65,15 @@ export class NewKindergardenComponent implements OnInit {
   {
     debugger;
     this.city=this.cities.find(p=>p.cityId==id);
+    this.kindergarden.areaId=0;
   }
 
   addKindergarden()
   {
-debugger;
+    debugger;
   }
 
+  cancel(): void {
+    this.dialogRef.close();
+  }
 }

@@ -50,6 +50,26 @@
            
             </td>
             <td>
+                <mat-form-field>
+                  <mat-select placeholder="בחר שכבת גיל" [(ngModel)]="kindergarden.kindId" name="name">
+                    <mat-option *ngFor="let kind of kinds" [value]="kind.kindId ">
+                      {{kind.kindName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+           
+            </td>
+            <td>
+                <mat-form-field>
+                  <mat-select placeholder="בחר שכבת גיל" [(ngModel)]="kindergarden.languageId" name="name">
+                    <mat-option *ngFor="let lang of languges" [value]="lang.languageId ">
+                      {{lang.languageName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+           
+            </td>
+            <td>
               שעות פעילות הגן:
               <mat-form-field class="example-full-width">
                 <input matInput placeholder=" משעה" [(ngModel)]="kindergarden.fromHour" type="time" name="password" required>
@@ -68,7 +88,6 @@
               </mat-form-field>
             </td>
             <td>
-
                 <mat-form-field>
                     <mat-select placeholder="בחר שיכות" [(ngModel)]="kindergarden.belongingId" name="name">
                       <mat-option *ngFor="let belong of belongs" [value]="belong.belongingId">
@@ -82,9 +101,11 @@
         </form>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="addKindergarden()">הרשמה</button>
+          <button mat-button [mat-dialog-close]="kindergarden" cdkFocusInitial>אישור</button>
+        <button mat-raised-button color="primary" (click)="cancel()">ביטול</button>
       </mat-card-actions>
     </mat-card>
+
 
     
   

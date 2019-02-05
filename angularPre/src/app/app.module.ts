@@ -8,7 +8,8 @@ import { MyNavComponent } from './components/my-nav/my-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatToolbarModule,MatSelectModule,MatStepperModule, MatButtonModule,MatAutocompleteModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatListModule, MatCheckboxModule, MatRadioModule } from '@angular/material';
+import { MatToolbarModule,MatSelectModule,MatDialogRef,
+  MatStepperModule, MatButtonModule,MatAutocompleteModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatSidenavModule, MatListModule, MatCheckboxModule, MatRadioModule } from '@angular/material';
 import { RegisterTeacherComponent } from './components/registerTeacher/registerTeacher.component';
 import { TeacherService } from './shared/services/teacher.service';
 import { HellperService } from './shared/services/hellper.service';
@@ -45,7 +46,8 @@ import { HomeComponent } from './components/home/home.component';
     FlexLayoutModule
     ,FormsModule,HttpClientModule, DropDownsModule
   ],
-  providers: [TeacherService,HellperService],
-  bootstrap: [AppComponent]
+  providers: [TeacherService,HellperService,{provide: MatDialogRef, useValue: {}}],
+  bootstrap: [AppComponent],
+  entryComponents: [NewKindergardenComponent]
 })
 export class AppModule { }
