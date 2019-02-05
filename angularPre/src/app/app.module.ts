@@ -19,11 +19,18 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { DashboardPresencesComponent } from './components/dashboardPresences/dashboardPresences.component';
 import { PrecencesImageChildComponent } from './components/precencesImageChild/precencesImageChild.component';
 import { HomeComponent } from './components/home/home.component';
+import { NewChildComponent } from './components/new-child/new-child.component';
+import { KindergardenChildrenComponent } from './components/kindergarden-children/kindergarden-children.component';
+import { RequestParentComponent } from './components/request-parent/request-parent.component';
+import { ShowPrecencesComponent } from './components/show-precences/show-precences.component';
+import { SatisticComponent } from './components/satistic/satistic.component';
+import { AlertParentComponent } from './components/alert-parent/alert-parent.component';
 
 @NgModule({
   declarations: [
-    AppComponent,DashboardPresencesComponent,PrecencesImageChildComponent,HomeComponent,
-    MyNavComponent,LoginComponent,RegisterTeacherComponent,NewKindergardenComponent
+    AppComponent,DashboardPresencesComponent,PrecencesImageChildComponent,HomeComponent,ShowPrecencesComponent,
+    MyNavComponent,LoginComponent,RegisterTeacherComponent,NewKindergardenComponent,NewChildComponent,KindergardenChildrenComponent,RequestParentComponent,
+    SatisticComponent,AlertParentComponent,
   ],
   imports: [
     MatSelectModule,
