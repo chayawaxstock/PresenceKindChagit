@@ -9,8 +9,11 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterTeacherComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'dashboard-presences', component: DashboardPresencesComponent },
+  { path: 'home', component: HomeComponent,children:[
+    { path: '', component: DashboardPresencesComponent },
+    { path: 'dashboard-presences', component: DashboardPresencesComponent },
+  ] },
+  
   // { path: '**', component: PageNotFoundComponent },
 ];
 
