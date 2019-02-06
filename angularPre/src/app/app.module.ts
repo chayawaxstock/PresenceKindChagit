@@ -25,12 +25,13 @@ import { RequestParentComponent } from './components/request-parent/request-pare
 import { ShowPrecencesComponent } from './components/show-precences/show-precences.component';
 import { SatisticComponent } from './components/satistic/satistic.component';
 import { AlertParentComponent } from './components/alert-parent/alert-parent.component';
+import { RegisterParentComponent } from './components/register-parent/register-parent.component';
 
 @NgModule({
   declarations: [
     AppComponent,DashboardPresencesComponent,PrecencesImageChildComponent,HomeComponent,ShowPrecencesComponent,
     MyNavComponent,LoginComponent,RegisterTeacherComponent,NewKindergardenComponent,NewChildComponent,KindergardenChildrenComponent,RequestParentComponent,
-    SatisticComponent,AlertParentComponent,
+    SatisticComponent,AlertParentComponent,RegisterParentComponent
   ],
   imports: [
     MatSelectModule,
