@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { ChildService } from 'src/app/shared/services/child.service';
+import { Child } from 'src/app/shared/models/child';
 
 @Component({
   selector: 'app-new-child',
@@ -11,7 +13,11 @@ export class NewChildComponent implements OnInit {
   newChild: FormGroup; 
   imageUrl:string;
   fileToUpload: File = null;
-  constructor(private fb: FormBuilder) { }
+  isImageLoading: boolean;
+  imageToShow: any;
+  child:Child=new Child();
+
+  constructor(private fb: FormBuilder,public childService:ChildService) { }
 
   ngOnInit() {
 
@@ -49,6 +55,41 @@ export class NewChildComponent implements OnInit {
     }
     reader.readAsDataURL(this.fileToUpload);
   }
+
+  addChild()
+  {
+    debugger;
+     this.child=this.newChild.value;
+     this.childService.addChild(this.child,this.fileToUpload).subscribe(data=>{
+       
+     });
+  }
+
+ 
+
+
+
+createImageFromBlob(image: Blob) {
+   let reader = new FileReader();
+   reader.addEventListener("load", () => {
+      this.imageToShow = reader.result;
+   }, false);
+
+   if (image) {
+      reader.readAsDataURL(image);
+   }
+}
+
+getImageFromService() {
+  this.isImageLoading = true;
+  this.childService.getImage("").subscribe(data => {
+    this.createImageFromBlob(data);
+    this.isImageLoading = false;
+  }, error => {
+    this.isImageLoading = false;
+    console.log(error);
+  });
+}
 
 
 }

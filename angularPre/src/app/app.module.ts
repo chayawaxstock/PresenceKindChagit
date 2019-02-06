@@ -26,6 +26,7 @@ import { ShowPrecencesComponent } from './components/show-precences/show-precenc
 import { SatisticComponent } from './components/satistic/satistic.component';
 import { AlertParentComponent } from './components/alert-parent/alert-parent.component';
 import { RegisterParentComponent } from './components/register-parent/register-parent.component';
+import { ChildService } from './shared/services/child.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { RegisterParentComponent } from './components/register-parent/register-p
     FlexLayoutModule
     ,FormsModule,HttpClientModule, DropDownsModule
   ],
-  providers: [TeacherService,HellperService,{provide: MatDialogRef, useValue: {}}],
+  providers: [TeacherService,HellperService,ChildService,{provide: MatDialogRef, useValue: {}}],
   bootstrap: [AppComponent],
   entryComponents: [NewKindergardenComponent]
 })

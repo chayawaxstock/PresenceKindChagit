@@ -1,75 +1,70 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title>גן חדש</mat-card-title>
+    <mat-card-title> </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-      <!-- childId:number;
-    
-    
-   
-      
+    <!-- childId:number;
       areaId:number;
       area:Area=new Area();
-
-    
-      
-    
       kindergartenChild:KindergartenChild=new KindergartenChild(); -->
- <form [formGroup]="newChild">
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <input matInput formControlName="firstName" type="text" placeholder="שם פרטי"  name="name" required>
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field class="example-full-width">
-              <input matInput type="text" formControlName="lastName" placeholder="שם משפחה"  name="code" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-            <td>
-              <mat-form-field class="example-full-width">
-                <input matInput formControlName="address" type="text" placeholder=" כתובת"  name="name" required>
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="example-full-width">
-                <input matInput type="text" formControlName="tz" placeholder=" תעודת זהות"  name="code" required>
-              </mat-form-field>
-            </td>
-            <td>
-                <mat-form-field class="example-full-width">
-                  <input matInput type="date" formControlName="bornDate" placeholder="תאריך לידה "  name="code" required>
-                </mat-form-field>
-              </td>
-          </tr>
-       
-        <tr>
-            <td>
-                <mat-form-field class="example-full-width">
-                    <img [src]="imageUrl"  style="width:250px;height:200px">
-                  <input matInput type="file" formControlName="image" accept="image/*" (change)="handleFileInput($event.target.files)" placeholder="תמונה  "  name="code" required>
-                </mat-form-field>
-              </td>
-              <td>
-                  <mat-form-field class="example-full-width">
-                    <input matInput type="text" formControlName="kindergartenChild" placeholder="שם גן"  name="code" required>
-                  </mat-form-field>
-                </td>
-        </tr>
-        <tr>
+    <form [formGroup]="newChild"  >
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="firstName" type="text" placeholder="שם פרטי" name="name" required>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" formControlName="lastName" placeholder="שם משפחה" name="code" required>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="address" type="text" placeholder=" כתובת" name="name" required>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" formControlName="tz" placeholder=" תעודת זהות" name="code" required>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <input matInput type="date" formControlName="bornDate" placeholder="תאריך לידה " name="code" required>
+          </mat-form-field>
+        </td>
+      </tr>
 
-        </tr>
-        <button></button>
-      </form>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button  cdkFocusInitial>אישור</button>
-      <button mat-raised-button color="primary" >ביטול</button>
-    </mat-card-actions>
-  </mat-card>
+      <tr>
+        <td>
+          <img [src]="imageUrl" style="width:250px;height:200px">
+          <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+        </td>
+
+        <td>
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" formControlName="kindergartenChild" placeholder="שם גן" name="code" required>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+
+      </tr>
+      <button></button>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button cdkFocusInitial (click)="addChild()" type="submit">הוספה</button>
+  </mat-card-actions>
+</mat-card>
 
 
-  
+<!-- <img [src]="imageToShow"
+     alt="Place image title"
+     *ngIf="!isImageLoading; else noImageFound">
+<ng-template #noImageFound>
+     <img src="fallbackImage.png" alt="Fallbackimage">
+</ng-template> -->

@@ -4,9 +4,10 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterTeacherComponent } from './components/registerTeacher/registerTeacher.component';
 import { DashboardPresencesComponent } from './components/dashboardPresences/dashboardPresences.component';
 import { HomeComponent } from './components/home/home.component';
+import { NewChildComponent } from './components/new-child/new-child.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: NewChildComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterTeacherComponent },
   { path: 'home', component: HomeComponent,children:[
