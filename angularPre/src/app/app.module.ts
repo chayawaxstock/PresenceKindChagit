@@ -28,12 +28,13 @@ import { AlertParentComponent } from './components/alert-parent/alert-parent.com
 import { RegisterParentComponent } from './components/register-parent/register-parent.component';
 import { ChildService } from './shared/services/child.service';
 import { ModelPassTeacherComponent } from './components/model-pass-teacher/model-pass-teacher.component';
+import { TicketComponent } from './components/ticket/ticket.component';
 
 @NgModule({
   declarations: [
     AppComponent,DashboardPresencesComponent,PrecencesImageChildComponent,HomeComponent,ShowPrecencesComponent,
     MyNavComponent,LoginComponent,RegisterTeacherComponent,NewKindergardenComponent,NewChildComponent,KindergardenChildrenComponent,RequestParentComponent,
-    SatisticComponent,AlertParentComponent,RegisterParentComponent,ModelPassTeacherComponent
+    SatisticComponent,AlertParentComponent,RegisterParentComponent,ModelPassTeacherComponent,TicketComponent
   ],
   imports: [
     MatSelectModule,
