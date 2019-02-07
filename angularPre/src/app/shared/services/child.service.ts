@@ -13,22 +13,20 @@ export class ChildService {
 
 constructor(private http:HttpClient) { }
 
-postFile(fileToUpload: File) {
-  const endpoint = 'http://localhost:28101/api/UploadImage';
-  const formData: FormData = new FormData();
-  formData.append('Image', fileToUpload, fileToUpload.name);
-  return this.http.post(endpoint, formData);
-}
-
 getImage(imageUrl: string): Observable<Blob> {
   return this.http.get(imageUrl, { responseType: 'blob' });
 }
 
-addChild(child:Child,fileToUpload:File)
+addChild(child:Child)
+{
+  return this.http.post(API+"AddChild",child);
+}
+
+uploadImage(fileToUpload:File,childId:number)
 {
   const formData: FormData = new FormData();
   formData.append('Image', fileToUpload, fileToUpload.name);
-  return this.http.post(API+"AddChild",formData);
+  return this.http.post(API+"UploadImage/"+childId,formData);
 }
 
 }

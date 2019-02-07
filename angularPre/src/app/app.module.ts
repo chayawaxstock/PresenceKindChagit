@@ -27,12 +27,13 @@ import { SatisticComponent } from './components/satistic/satistic.component';
 import { AlertParentComponent } from './components/alert-parent/alert-parent.component';
 import { RegisterParentComponent } from './components/register-parent/register-parent.component';
 import { ChildService } from './shared/services/child.service';
+import { ModelPassTeacherComponent } from './components/model-pass-teacher/model-pass-teacher.component';
 
 @NgModule({
   declarations: [
     AppComponent,DashboardPresencesComponent,PrecencesImageChildComponent,HomeComponent,ShowPrecencesComponent,
     MyNavComponent,LoginComponent,RegisterTeacherComponent,NewKindergardenComponent,NewChildComponent,KindergardenChildrenComponent,RequestParentComponent,
-    SatisticComponent,AlertParentComponent,RegisterParentComponent
+    SatisticComponent,AlertParentComponent,RegisterParentComponent,ModelPassTeacherComponent
   ],
   imports: [
     MatSelectModule,
@@ -57,6 +58,6 @@ import { ChildService } from './shared/services/child.service';
   ],
   providers: [TeacherService,HellperService,ChildService,{provide: MatDialogRef, useValue: {}}],
   bootstrap: [AppComponent],
-  entryComponents: [NewKindergardenComponent]
+  entryComponents: [NewKindergardenComponent,ModelPassTeacherComponent]
 })
 export class AppModule { }

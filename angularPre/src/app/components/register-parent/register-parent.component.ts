@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ChildService } from 'src/app/shared/services/child.service';
 
 @Component({
   selector: 'app-register-parent',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register-parent.component.scss']
 })
 export class RegisterParentComponent implements OnInit {
+  @Input()
+  newParent: FormGroup ; 
+  constructor(private fb: FormBuilder,public childService:ChildService) { }
 
-  constructor() { }
+  
+ 
 
   ngOnInit() {
+    
+  
   }
-
 }
