@@ -12,6 +12,7 @@ export class Child {
     areaId:number;
     area:Area=new Area();
     age:number;
+    bornDate:Date;
     tz:string;
     image:string;
     parentId:number;

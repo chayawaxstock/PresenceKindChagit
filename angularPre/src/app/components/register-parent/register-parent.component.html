@@ -1,0 +1,54 @@
+
+      <form [formGroup]="newParent"  >
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput formControlName="nameMother" type="text" placeholder="שם האמא" name="name" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput type="text" formControlName="nameFather" placeholder="שם האבא" name="code" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput formControlName="phoneMother" type="tel" placeholder=" פלאפון אמא" name="name" required>
+            </mat-form-field>
+          </td>
+          <td>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="phoneFather" type="tel" placeholder=" פלאפון אבא" name="name" required>
+              </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="tell" type="tel" placeholder="טלפון " name="name" required>
+              </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput formControlName="anotherTell" type="tel" placeholder="טלפון נוסף" name="name" required>
+                </mat-form-field>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput formControlName="email1" type="email" placeholder="מייל " name="name" required>
+                </mat-form-field>
+              </td>
+              <td>
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="email2" type="email" placeholder="מייל נוסף" name="name" required>
+                  </mat-form-field>
+                </td>
+            </tr>
+        <button></button>
+      </form>
+
+  

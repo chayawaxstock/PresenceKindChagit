@@ -18,6 +18,7 @@ import { City } from 'src/app/shared/models/city';
 })
 export class RegisterTeacherComponent implements OnInit {
 
+  currectTeacher:Teacher;
   showSpinner = false;
   confirmPassword: string;
   submitted = false;
@@ -55,7 +56,8 @@ export class RegisterTeacherComponent implements OnInit {
   addNewTeacher()
   {
     debugger;
-    this.teacherService.addNewTeacher(this.newTeacher).subscribe(ans=>{
+    this.teacherService.addNewTeacher(this.newTeacher).subscribe((ans)=>{
+        this.teacherService.currectTeacher=ans;
     },err=>{
     });
   }

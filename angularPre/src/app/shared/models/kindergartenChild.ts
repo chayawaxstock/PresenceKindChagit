@@ -8,7 +8,7 @@ export class KindergartenChild {
     kindergartenChildId:number;
     childId:number;
     kindergartenId:number;
-    child:Child=new Child();
+    // child:Child=new Child();
     kindergarten:Kindergarten=new Kindergarten();
     year:Date=new Date()
     timeComeFrom:Date;

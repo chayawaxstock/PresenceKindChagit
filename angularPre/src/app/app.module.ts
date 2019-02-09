@@ -26,12 +26,17 @@ import { ShowPrecencesComponent } from './components/show-precences/show-precenc
 import { SatisticComponent } from './components/satistic/satistic.component';
 import { AlertParentComponent } from './components/alert-parent/alert-parent.component';
 import { WellcomeComponent } from './components/wellcome/wellcome.component';
+import { RegisterParentComponent } from './components/register-parent/register-parent.component';
+import { ChildService } from './shared/services/child.service';
+import { ModelPassTeacherComponent } from './components/model-pass-teacher/model-pass-teacher.component';
+import { TicketComponent } from './components/ticket/ticket.component';
 
 @NgModule({
   declarations: [
     AppComponent,DashboardPresencesComponent,PrecencesImageChildComponent,HomeComponent,ShowPrecencesComponent,
     MyNavComponent,LoginComponent,RegisterTeacherComponent,NewKindergardenComponent,NewChildComponent,KindergardenChildrenComponent,RequestParentComponent,
     SatisticComponent,AlertParentComponent,WellcomeComponent
+   ,RegisterParentComponent,ModelPassTeacherComponent,TicketComponent
   ],
   imports: [
     MatSelectModule,
@@ -54,8 +59,8 @@ import { WellcomeComponent } from './components/wellcome/wellcome.component';
     FlexLayoutModule
     ,FormsModule,HttpClientModule, DropDownsModule
   ],
-  providers: [TeacherService,HellperService,{provide: MatDialogRef, useValue: {}}],
+  providers: [TeacherService,HellperService,ChildService,{provide: MatDialogRef, useValue: {}}],
   bootstrap: [AppComponent],
-  entryComponents: [NewKindergardenComponent]
+  entryComponents: [NewKindergardenComponent,ModelPassTeacherComponent]
 })
 export class AppModule { }

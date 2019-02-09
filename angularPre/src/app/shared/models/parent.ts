@@ -10,5 +10,7 @@ export class Parent {
     email1:string;
     email2:string;
     children:Child[]=[];
+    nameMother:string;
+    nameFather:string;
     
 }

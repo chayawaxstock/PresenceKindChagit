@@ -1,0 +1,22 @@
+
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+              <input matInput placeholder="Username" [(ngModel)]="email" name="username" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+          <td ><mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+          </mat-form-field>
+        </td>
+        </tr>
+      <tr>
+        <td>   <button mat-raised-button (click)="ok()" color="primary">אישור</button>
+       </td>
+      </tr></table>
+      </form>
+

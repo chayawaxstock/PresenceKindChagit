@@ -11,15 +11,15 @@ const API=environment.api_url+"teacher/"
 })
 export class TeacherService {
 
-  currectTeacher: Teacher=new Teacher();
+currectTeacher: Teacher=new Teacher();
 
 constructor(private http:HttpClient) { }
 
 addKindergarden(kindergarden:Kindergarten): Observable<boolean> {
   throw new Error("Method not implemented.");
 }
-addNewTeacher(teacher:Teacher): Observable<boolean> {
-  return this.http.post<boolean>(API+"addTeacher",teacher);
+addNewTeacher(teacher:Teacher): Observable<Teacher> {
+  return this.http.post<Teacher>(API+"addTeacher",teacher);
 }
 login(password,email):Observable<Teacher>{
    return this.http.post<Teacher>(API+"logIn",{email,password})
