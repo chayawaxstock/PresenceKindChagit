@@ -22,7 +22,7 @@ export class PrecencesImageChildComponent implements OnInit {
 
   clickImage(divElement) {
     if (this.isclick == true) {
-
+debugger;
       const dialogRef = this.dialog.open(ModelPassTeacherComponent, {
 
       });
