@@ -44,9 +44,12 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  register()
-  {
+  registerTeacher(){
     this.router.navigate(['register']);
+  }
+  registerChild()
+  {
+    this.router.navigate(['registerChild']);
   }
 
 }

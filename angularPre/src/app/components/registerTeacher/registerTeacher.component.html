@@ -7,12 +7,12 @@
       <table class="example-full-width" cellspacing="0">
         <tr>
           <td>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" style="text-align: right">
               <input matInput type="text" placeholder="שם פרטי" [(ngModel)]="newTeacher.name" name="name" required>
             </mat-form-field>
           </td>
           <td>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" style="text-align: right">
               <input matInput type="text" placeholder="שם משפחה" [(ngModel)]="newTeacher.lastName" name="lastName"
                 required>
             </mat-form-field>
@@ -20,35 +20,35 @@
         </tr>
         <tr>
           <td>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" style="text-align: right">
               <input matInput type="email" placeholder="מייל" [(ngModel)]="newTeacher.email" name="lastName" required>
             </mat-form-field>
           </td>
           <td>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" style="text-align: right">
               <input matInput type="tel" placeholder="טלפון" [(ngModel)]="newTeacher.tell" name="lastName" required>
             </mat-form-field>
           </td>
           <td>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" style="text-align: right">
               <input matInput type="tel" placeholder="פלאפון" [(ngModel)]="newTeacher.phone" name="lastName" required>
             </mat-form-field>
           </td>
         </tr>
         <tr>
           <td>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" style="text-align: right">
               <input matInput type="number" placeholder="גיל" [(ngModel)]="newTeacher.age" name="lastName" required>
             </mat-form-field>
           </td>
           <td>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" style="text-align: right">
               <input matInput placeholder="סיסמה" [(ngModel)]="newTeacher.password" type="password" name="password"
                 required>
             </mat-form-field>
           </td>
           <td>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" style="text-align: right">
               <input matInput placeholder="אישור סיסמה" [(ngModel)]="confirmPassword" type="password" name="password"
                 required>
             </mat-form-field>
@@ -57,14 +57,14 @@
         <tr>
             <td>
                 <mat-form-field>
-                  <mat-select placeholder="בחר עיר " [(ngModel)]="city.cityId" name="name">
+                  <mat-select placeholder="בחר עיר " [(ngModel)]="city.cityId" name="name" style="text-align: right">
                       <mat-option (onSelectionChange)="changeCity(option.cityId)" *ngFor="let option of cities" [value]="option.cityId">{{option.name}}</mat-option>
                   </mat-select>
                 </mat-form-field>    
             </td>
               <td>
                   <mat-form-field>
-                    <mat-select placeholder="בחר אזור " [(ngModel)]="newTeacher.areaId" name="name">
+                    <mat-select placeholder="בחר אזור " [(ngModel)]="newTeacher.areaId" name="name" style="text-align: right">
                         <mat-option *ngFor="let option of city.areas" [value]="option.areaId">{{option.areaName}}</mat-option>
                     </mat-select>
                   </mat-form-field>    
@@ -72,7 +72,7 @@
         </tr>
         <tr>
           <td>
-            <section class="example-section">
+            <section class="example-section" style="text-align: right">
               <label class="example-margin">גננת ב: </label>
               <mat-radio-group [(ngModel)]="isNewKindgarden" name="radio">
                 <mat-radio-button [value]="false">גן קים</mat-radio-button>
@@ -85,7 +85,7 @@
         <tr *ngIf="!isNewKindgarden">
           <td>
             <form class="example-form">
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-full-width" style="text-align: right">
                 <mat-select placeholder="בחר גן" [(ngModel)]="newTeacher.kindergartenId" name="name">
                   <mat-option *ngFor="let Kinder of allKinderGardens" [value]="Kinder.kindergartenId">
                     {{Kinder.name}}
