@@ -14,7 +14,10 @@ export class ChildService {
 constructor(private http:HttpClient) { }
 
 getImage(imageUrl: string): Observable<Blob> {
-  return this.http.get(imageUrl, { responseType: 'blob' });
+  debugger;
+  const formData: FormData = new FormData();
+  formData.append('Image', imageUrl);
+  return this.http.post(API+"GetImage",formData, { responseType: 'blob' });
 }
 
 addChild(child:Child)
@@ -27,6 +30,15 @@ uploadImage(fileToUpload:File,childId:number)
   const formData: FormData = new FormData();
   formData.append('Image', fileToUpload, fileToUpload.name);
   return this.http.post(API+"UploadImage/"+childId,formData);
+}
+addPrecence(kinderId:number,childId:number):Observable<boolean>
+{
+  return this.http.get<boolean>(API+"addPrecence/"+kinderId+"/"+childId);
+}
+
+checkPresence(childId:number):Observable<number>
+{
+  return this.http.get<number>(API+"checkPrecence/"+childId);
 }
 
 }

@@ -26,6 +26,23 @@
             <input matInput formControlName="address" type="text" placeholder=" כתובת" name="name" required>
           </mat-form-field>
         </td>
+          <td>
+              <mat-form-field>
+                <mat-select placeholder="בחר עיר " [(ngModel)]="city.cityId" name="name" style="text-align: right">
+                    <mat-option style="text-align: right" (onSelectionChange)="changeCity(option.cityId)" *ngFor="let option of cities" [value]="option.cityId">{{option.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>    
+          </td>
+            <td>
+                <mat-form-field>
+                  <mat-select placeholder="בחר אזור " formControlName="areaId" name="name" style="text-align: right">
+                      <mat-option style="text-align: right" *ngFor="let option of city.areas" [value]="option.areaId">{{option.areaName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>    
+            </td>
+      </tr>
+      <tr>
+        
         <td>
           <mat-form-field class="example-full-width">
             <input matInput type="text" formControlName="tz" placeholder=" תעודת זהות" name="code" required>
@@ -36,26 +53,32 @@
             <input matInput type="date" formControlName="bornDate" placeholder="תאריך לידה " name="code" required>
           </mat-form-field>
         </td>
+       
+      </tr>
+      <tr> 
         <td>
             <mat-form-field class="example-full-width">
               <input matInput type="password" formControlName="password" placeholder=" סיסמה לשימוש באתר" name="code" required>
             </mat-form-field>
           </td>
-      </tr>
-      <tr>
         <td>
-          <img [src]="imageUrl" style="width:250px;height:200px">
+            <mat-form-field class="example-full-width" style="text-align: right">
+                <mat-select style="text-align: right" placeholder="בחר גן" formControlName="kindergartenChild" name="name">
+                  <mat-option style="text-align: right" *ngFor="let Kinder of allKinderGardens" [value]="Kinder.kindergartenId">
+                    {{Kinder.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </td>
+      </tr>
+           <td style="position: absolute;
+           margin-right: 439px;
+           right: 25px;">
+          <img *ngIf="!imageUrl" style="width:250px;height:200px">
+          <img *ngIf="imageUrl" [src]="imageUrl" style="width:250px;height:200px">
           <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
-        </td>
-
-        <td>
-          <mat-form-field class="example-full-width">
-            <input matInput type="text" formControlName="kindergartenChild" placeholder="שם גן" name="code" required>
-          </mat-form-field>
-        </td>
-      </tr>
-     
-
+         
+        </td> 
     </form>
      <app-register-parent [newParent]="newParent"></app-register-parent> 
   </mat-card-content>

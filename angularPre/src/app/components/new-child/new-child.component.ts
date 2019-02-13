@@ -3,6 +3,9 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ChildService } from 'src/app/shared/services/child.service';
 import { Child } from 'src/app/shared/models/child';
 import Swal from 'sweetalert2'
+import { HellperService } from 'src/app/shared/services/hellper.service';
+import { Kindergarten } from 'src/app/shared/models/kindergarten';
+import { City } from 'src/app/shared/models/city';
 
 @Component({
   selector: 'app-new-child',
@@ -11,6 +14,7 @@ import Swal from 'sweetalert2'
 })
 export class NewChildComponent implements OnInit {
 
+  city:City=new City();
   newChild: FormGroup;
   newParent:FormGroup; 
   imageUrl:string;
@@ -18,11 +22,22 @@ export class NewChildComponent implements OnInit {
   isImageLoading: boolean;
   imageToShow: any;
   child:Child=new Child();
+  cities:City[]=[];
+  allKinderGardens: Kindergarten[]=[];
 
-  constructor(private fb: FormBuilder,public childService:ChildService) { }
+  constructor(private fb: FormBuilder,public childService:ChildService,
+    public hellperService:HellperService) { }
 
   ngOnInit() {
-    
+
+    this.hellperService.getAllKindergarden().subscribe(data=>{
+      this.allKinderGardens=data;
+})
+
+this.hellperService.getAllCities().subscribe(data=>{
+  this.cities=data;
+});
+
     this.newParent=this.fb.group({
       phoneMother:[],
       phoneFather:[],
@@ -55,6 +70,11 @@ export class NewChildComponent implements OnInit {
   
   }
 
+  changeCity(id:number)
+  {
+    this.city=this.cities.find(p=>p.cityId==id);
+  }
+
   handleFileInput(file: FileList) {
     this.fileToUpload = file.item(0);
 
@@ -83,27 +103,7 @@ export class NewChildComponent implements OnInit {
      });
   }
 
-createImageFromBlob(image: Blob) {
-   let reader = new FileReader();
-   reader.addEventListener("load", () => {
-      this.imageToShow = reader.result;
-   }, false);
 
-   if (image) {
-      reader.readAsDataURL(image);
-   }
-}
-
-getImageFromService() {
-  this.isImageLoading = true;
-  this.childService.getImage("").subscribe(data => {
-    this.createImageFromBlob(data);
-    this.isImageLoading = false;
-  }, error => {
-    this.isImageLoading = false;
-    console.log(error);
-  });
-}
 
 erorMessage(message:string)
 {

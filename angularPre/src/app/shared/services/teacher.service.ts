@@ -4,6 +4,7 @@ import { Kindergarten } from '../models/kindergarten';
 import { Teacher } from '../models/teacher';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Child } from '../models/child';
 
 const API=environment.api_url+"teacher/"
 @Injectable({
@@ -12,6 +13,7 @@ const API=environment.api_url+"teacher/"
 export class TeacherService {
 
 currectTeacher: Teacher=new Teacher();
+currectKindergarden:Kindergarten=new Kindergarten();
 
 constructor(private http:HttpClient) { }
 
@@ -22,7 +24,12 @@ addNewTeacher(teacher:Teacher): Observable<Teacher> {
   return this.http.post<Teacher>(API+"addTeacher",teacher);
 }
 login(password,email):Observable<Teacher>{
-   return this.http.post<Teacher>(API+"logIn",{email,password})
+   return this.http.post<Teacher>(API+"logIn",{email,password});
 }
+getChildren(teacherId:number):Observable<Child[]>
+{
+  return this.http.get<Child[]>(API+"getChildrenByTeacher/"+teacherId);
+}
+
 
 }

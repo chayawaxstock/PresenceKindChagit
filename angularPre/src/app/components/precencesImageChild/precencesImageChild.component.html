@@ -1,10 +1,16 @@
-<div class="container">
+<div class="container" style="width: 183px;">
+    <!-- <img ng-src={{"data:image/png;base64,"+ imageToShow}} 
+    alt="Place image title"
+    *ngIf="!isImageLoading; else noImageFound">
+<ng-template #noImageFound>
+    <img src="fallbackImage.png" alt="Fallbackimage">
+</ng-template> -->
   <img #divElement src="../../../assets/11963148-happy-child-kids-group-have-fun-and-play-at-kindergarden-indoor-preschool-education-concept-with-tea.jpg"
     class="imageChild" (click)="clickImage(divElement)">
-  <div class="centered">{{child}}
+  <div class="centered">{{child.firstName}} {{child.lastName}} 
   </div>
   <div class="centered1" *ngIf="isclick">
-  <i class="material-icons" style="color: greenyellow;">
+  <i class="material-icons" style="color: greenyellow;margin-right: 10px;">
       done_outline
     </i>
   </div>

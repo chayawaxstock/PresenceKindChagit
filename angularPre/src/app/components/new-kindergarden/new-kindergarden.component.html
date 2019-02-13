@@ -1,5 +1,5 @@
 
-<mat-card class="example-card">
+<mat-card class="example-card" style="direction: rtl;">
     <mat-card-header>
       <mat-card-title>גן חדש</mat-card-title>
     </mat-card-header>
@@ -7,32 +7,37 @@
    <form>
           <tr>
             <td>
-              <mat-form-field class="example-full-width">
-                <input matInput type="text" placeholder="שם" [(ngModel)]="kindergarden.name" name="name" required>
+              <mat-form-field class="example-full-width" style="text-align: right">
+                <input matInput type="text" placeholder="שם" [(ngModel)]="kindergarden.name" name="12" required>
               </mat-form-field>
             </td>
             <td>
-              <mat-form-field class="example-full-width">
-                <input matInput type="text" placeholder="קוד גן " [(ngModel)]="kindergarden.code" name="code" required>
+              <mat-form-field class="example-full-width" style="text-align: right">
+                <input matInput type="text" placeholder="קוד גן " [(ngModel)]="kindergarden.code" name="11" required>
               </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="example-full-width" style="text-align: right">
+                  <input matInput placeholder="כתובת" [(ngModel)]="kindergarden.address" type="text" name="10" required>
+                </mat-form-field>
             </td>
           </tr>
           <tr>
             <td>
-              <mat-form-field class="example-full-width">
-                <input matInput type="tel" placeholder="טלפון" [(ngModel)]="kindergarden.tell" name="tell" required>
+              <mat-form-field class="example-full-width" style="text-align: right">
+                <input matInput type="tel" placeholder="טלפון" [(ngModel)]="kindergarden.tell" name="9" required>
               </mat-form-field>
             </td>
             <td>
-                <mat-form-field>
-                  <mat-select placeholder="בחר עיר " [(ngModel)]="city.cityId" name="name">
+                <mat-form-field dir="rtl">
+                  <mat-select placeholder="בחר עיר " [(ngModel)]="city.cityId" name="8" style="text-align: right">
                       <mat-option (onSelectionChange)="changeCity(option.cityId)" *ngFor="let option of cities" [value]="option.cityId">{{option.name}}</mat-option>
                   </mat-select>
                 </mat-form-field>    
             </td>
               <td>
-                  <mat-form-field>
-                    <mat-select placeholder="בחר אזור " [(ngModel)]="kindergarden.areaId" name="name">
+                  <mat-form-field dir="rtl">
+                    <mat-select placeholder="בחר אזור " [(ngModel)]="kindergarden.areaId" name="7" style="text-align: right">
                         <mat-option *ngFor="let option of city.areas" [value]="option.areaId">{{option.areaName}}</mat-option>
                     </mat-select>
                   </mat-form-field>    
@@ -40,8 +45,8 @@
           </tr>
           <tr>
             <td>
-                <mat-form-field>
-                  <mat-select placeholder="בחר שכבת גיל" [(ngModel)]="kindergarden.layerId" name="name">
+                <mat-form-field dir="rtl">
+                  <mat-select placeholder="בחר שכבת גיל" [(ngModel)]="kindergarden.layerId" name="6" style="text-align: right">
                     <mat-option *ngFor="let layer1 of layers" [value]="layer1.layerId">
                       {{layer1.layerName}}
                     </mat-option>
@@ -50,8 +55,8 @@
            
             </td>
             <td>
-                <mat-form-field>
-                  <mat-select placeholder="בחר שכבת גיל" [(ngModel)]="kindergarden.kindId" name="name">
+                <mat-form-field dir="rtl">
+                  <mat-select placeholder="בחר שכבת גיל" [(ngModel)]="kindergarden.kindId" name="5" style="text-align: right">
                     <mat-option *ngFor="let kind of kinds" [value]="kind.kindId ">
                       {{kind.kindName}}
                     </mat-option>
@@ -60,8 +65,8 @@
            
             </td>
             <td>
-                <mat-form-field>
-                  <mat-select placeholder="בחר שכבת גיל" [(ngModel)]="kindergarden.languageId" name="name">
+                <mat-form-field dir="rtl"> 
+                  <mat-select placeholder="בחר שכבת גיל" [(ngModel)]="kindergarden.languageId" name="4" style="text-align: right">
                     <mat-option *ngFor="let lang of languges" [value]="lang.languageId ">
                       {{lang.languageName}}
                     </mat-option>
@@ -69,27 +74,24 @@
                 </mat-form-field>
            
             </td>
-            <td>
-              שעות פעילות הגן:
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder=" משעה" [(ngModel)]="kindergarden.fromHour" type="time" name="password" required>
-              </mat-form-field>
-            </td>
+          
           </tr>
           <tr>
-            <td>
-              <mat-form-field class="example-full-width">
-                <input matInput type="time" placeholder="עד שעה" [(ngModel)]="kindergarden.tillHour" name="lastName" required>
+              <td>
+              שעות פעילות הגן:
+              <mat-form-field class="example-full-width" style="text-align: right">
+                <input matInput placeholder=" משעה" [(ngModel)]="kindergarden.fromHour" type="time" name="3" required>
               </mat-form-field>
             </td>
-            <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="כתובת" [(ngModel)]="kindergarden.address" type="text" name="password" required>
+            <td style="margin-top: 19px;">
+              <mat-form-field class="example-full-width" style="text-align: right">
+                <input matInput type="time" placeholder="עד שעה" [(ngModel)]="kindergarden.tillHour" name="2" required>
               </mat-form-field>
             </td>
+           
             <td>
-                <mat-form-field>
-                    <mat-select placeholder="בחר שיכות" [(ngModel)]="kindergarden.belongingId" name="name">
+                <mat-form-field dir="rtl">
+                    <mat-select placeholder="בחר שיכות" [(ngModel)]="kindergarden.belongingId" name="1" style="text-align: right">
                       <mat-option *ngFor="let belong of belongs" [value]="belong.belongingId">
                         {{belong.name}}
                       </mat-option>
@@ -97,7 +99,6 @@
                   </mat-form-field>
               </td>
           </tr>
-          <button></button>
         </form>
       </mat-card-content>
       <mat-card-actions>
