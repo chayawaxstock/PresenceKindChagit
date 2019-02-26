@@ -23,9 +23,7 @@ addKindergarden(kindergarden:Kindergarten): Observable<boolean> {
 addNewTeacher(teacher:Teacher): Observable<Teacher> {
   return this.http.post<Teacher>(API+"addTeacher",teacher);
 }
-login(password,email):Observable<Teacher>{
-   return this.http.post<Teacher>(API+"logIn",{email,password});
-}
+
 getChildren(teacherId:number):Observable<Child[]>
 {
   return this.http.get<Child[]>(API+"getChildrenByTeacher/"+teacherId);

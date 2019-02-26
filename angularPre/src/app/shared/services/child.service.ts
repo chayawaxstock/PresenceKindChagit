@@ -10,6 +10,10 @@ const API=environment.api_url+"child/"
   providedIn: 'root'
 })
 export class ChildService {
+  deletePresence(childId: number): Observable<any> {
+    return this.http.delete(API+"deletePrecence/"+childId);
+  }
+  currectParents: any;
 
 constructor(private http:HttpClient) { }
 

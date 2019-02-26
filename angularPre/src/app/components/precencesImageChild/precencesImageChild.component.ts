@@ -39,6 +39,9 @@ this.childService.checkPresence(this.child.childId).subscribe(data=>{
       });
       dialogRef.afterClosed().subscribe(result => {
         if (result == true) {
+          this.childService.deletePresence(this.child.childId).subscribe(data=>{
+            
+          })
           divElement.style.borderColor = 'white';
           divElement.style.borderStyle = "none";
           this.isclick = false;
