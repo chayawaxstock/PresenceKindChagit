@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TeacherService } from 'src/app/shared/services/teacher.service';
 import Swal from 'sweetalert2'
+import { AccountService } from 'src/app/shared/services/account.service';
+import { ChildService } from 'src/app/shared/services/child.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,10 @@ import Swal from 'sweetalert2'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private teacherService: TeacherService) { }
+  constructor(private router: Router,
+     private teacherService: TeacherService,
+     public accountService:AccountService,
+     public childService:ChildService) { }
   email: string;
   password: string;
 
@@ -19,13 +24,22 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     debugger;
-    this.teacherService.login(this.password, this.email).subscribe(
+    this.accountService.login(this.password, this.email).subscribe(
       data => {
         if (data == null)
         this.erorMessage("מייל או סיסמה לא תקינים");
         else {
-          this.teacherService.currectTeacher = data;
-          this.router.navigate(['home'])
+          debugger;
+          if(data["teacherId"]!=null)
+          {
+             this.teacherService.currectTeacher = data;
+             this.router.navigate(['home'])
+          }
+          else{
+            this.childService.currectParents=data;
+            this.router.navigate(['homeParent'])
+          }
+         
         }
       },err=>{
         this.erorMessage("תקלה בקבלת הנתונים");

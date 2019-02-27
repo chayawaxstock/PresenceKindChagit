@@ -10,6 +10,8 @@ import { TeacherService } from 'src/app/shared/services/teacher.service';
 import { MatDialog } from '@angular/material';
 import { NewKindergardenComponent } from '../new-kindergarden/new-kindergarden.component';
 import { City } from 'src/app/shared/models/city';
+import { Router } from '@angular/router';
+import { AccountService } from 'src/app/shared/services/account.service';
 
 @Component({
   selector: 'app-registerTeacher',
@@ -33,7 +35,8 @@ export class RegisterTeacherComponent implements OnInit {
 
   constructor(private hellperService:HellperService,
     public teacherService:TeacherService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+    public router:Router) {
 
    }
 
@@ -56,8 +59,10 @@ export class RegisterTeacherComponent implements OnInit {
   addNewTeacher()
   {
     debugger;
+    
     this.teacherService.addNewTeacher(this.newTeacher).subscribe((ans)=>{
         this.teacherService.currectTeacher=ans;
+     this.router.navigate(["home"]);
     },err=>{
     });
   }

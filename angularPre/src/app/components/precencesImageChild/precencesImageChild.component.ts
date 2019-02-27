@@ -39,6 +39,9 @@ export class PrecencesImageChildComponent implements OnInit {
       });
       dialogRef.afterClosed().subscribe(result => {
         if (result == true) {
+          this.childService.deletePresence(this.child.childId).subscribe(data=>{
+            
+          })
           divElement.style.borderColor = 'white';
           divElement.style.borderStyle = "none";
           this.isclick = false;
