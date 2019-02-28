@@ -20,8 +20,9 @@ constructor(private http:HttpClient) { }
 
 
 getImage(imageUrl: string): Observable<Blob> {
-  
-  return this.http.get(API+"getImage/"+imageUrl, { responseType: 'blob' });
+  // const formData: FormData = new FormData();
+  // formData.append('Image', imageUrl);
+  return this.http.post(API+"getImage",imageUrl, { responseType: 'blob' });
 }
 
 addChild(child:Child)

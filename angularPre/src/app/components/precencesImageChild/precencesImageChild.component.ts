@@ -17,6 +17,7 @@ export class PrecencesImageChildComponent implements OnInit {
   // @Input()
   // child: string;
   isclick: boolean = false;
+  borderColor:number;
   timer: any;
   imageToShow: string | ArrayBuffer;
   isImageLoading: boolean;
@@ -24,9 +25,10 @@ export class PrecencesImageChildComponent implements OnInit {
     public teacherService: TeacherService) { }
 
   ngOnInit() {
-    //this.getImageFromService();
+    // this.getImageFromService();
     this.childService.checkPresence(this.child.childId).subscribe(data => {
       debugger;
+      this.borderColor=data;
     })
 
   }

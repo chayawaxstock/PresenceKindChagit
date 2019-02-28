@@ -6,7 +6,11 @@
     <img src="fallbackImage.png" alt="Fallbackimage">
 </ng-template> -->
   <img #divElement src="../../../assets/11963148-happy-child-kids-group-have-fun-and-play-at-kindergarden-indoor-preschool-education-concept-with-tea.jpg"
-    class="imageChild" (click)="clickImage(divElement)">
+    class="imageChild" (click)="clickImage(divElement)" 
+    [ngClass]="{
+      'borderGreen':borderColor == 1,
+      'borderRed':borderColor ==3
+      }">
   <div class="centered">{{child.firstName}} {{child.lastName}} 
   </div>
   <div class="centered1" *ngIf="isclick">
@@ -14,4 +18,5 @@
       done_outline
     </i>
   </div>
+
 </div>
