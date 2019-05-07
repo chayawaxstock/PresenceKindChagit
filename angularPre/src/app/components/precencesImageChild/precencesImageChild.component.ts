@@ -12,16 +12,17 @@ import { TeacherService } from 'src/app/shared/services/teacher.service';
 })
 export class PrecencesImageChildComponent implements OnInit {
 
-   @Input()
-   child:Child=new Child();
+  @Input()
+  child: Child = new Child();
   // @Input()
   // child: string;
   isclick: boolean = false;
-  timer:any;
+  borderColor:number;
+  timer: any;
   imageToShow: string | ArrayBuffer;
   isImageLoading: boolean;
-  constructor(public dialog: MatDialog,public childService:ChildService,
-    public teacherService:TeacherService) { }
+  constructor(public dialog: MatDialog, public childService: ChildService,
+    public teacherService: TeacherService) { }
 
   ngOnInit() {
    //this.getImageFromService();
@@ -46,12 +47,17 @@ this.childService.checkPresence(this.child.childId).subscribe(data=>{
   }
   debugger;
 })
+    // this.getImageFromService();
+    this.childService.checkPresence(this.child.childId).subscribe(data => {
+      debugger;
+      this.borderColor=data;
+    })
 
   }
 
   clickImage(divElement) {
     if (this.isclick == true) {
-         debugger;
+      debugger;
       const dialogRef = this.dialog.open(ModelPassTeacherComponent, {
 
       });
@@ -69,7 +75,7 @@ this.childService.checkPresence(this.child.childId).subscribe(data=>{
       return;
     }
     this.isclick = true;
-    this.childService.addPrecence(this.teacherService.currectTeacher.kindergartenId,this.child.childId).subscribe(data=>{
+    this.childService.addPrecence(this.teacherService.currectTeacher.kindergartenId, this.child.childId).subscribe(data => {
       alert(data);
     })
     divElement.style.borderColor = 'greenyellow';
@@ -80,28 +86,22 @@ this.childService.checkPresence(this.child.childId).subscribe(data=>{
   createImageFromBlob(image: Blob) {
     let reader = new FileReader();
     reader.addEventListener("load", () => {
-      debugger;
        this.imageToShow = reader.result;
     }, false);
  
     if (image) {
        reader.readAsDataURL(image);
     }
- }
+   }
  
- getImageFromService() {
-   debugger;
-   this.isImageLoading = true;
-   this.childService.getImage(this.child.image).subscribe(data => {
-    debugger;
-     this.createImageFromBlob(data);
-     this.isImageLoading = false;
-   }, error => {
-     this.isImageLoading = false;
-     console.log(error);
-   });
- }
-
-
-
+   getImageFromService() {
+       this.isImageLoading = true;
+       this.childService.getImage(this.child.image).subscribe(data => {
+         this.createImageFromBlob(data);
+         this.isImageLoading = false;
+       }, error => {
+         this.isImageLoading = false;
+         console.log(error);
+       });
+   }
 }
