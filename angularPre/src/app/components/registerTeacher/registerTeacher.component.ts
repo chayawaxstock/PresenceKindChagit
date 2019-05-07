@@ -74,6 +74,8 @@ export class RegisterTeacherComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      debugger;
+      this.isNewKindgarden=true;
       console.log('The dialog was closed');
       this.newTeacher.kindergarten = result;
       this.newTeacher.kindergartenId=0;

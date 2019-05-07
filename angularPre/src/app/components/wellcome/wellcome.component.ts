@@ -12,15 +12,23 @@ export class WellcomeComponent implements OnInit {
 
   ngOnInit() {
   }
+
   enter()
   {
     this.router.navigate(['login']);
   }
+
   registerTeacher(){
     this.router.navigate(['register']);
   }
+
   registerChild()
   {
     this.router.navigate(['registerChild']);
+  }
+
+  registerKinderGarden()
+  {
+    this.router.navigate(['registerKinderGarden']);
   }
 }

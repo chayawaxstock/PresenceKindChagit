@@ -26,6 +26,24 @@ export class PrecencesImageChildComponent implements OnInit {
   ngOnInit() {
    //this.getImageFromService();
 this.childService.checkPresence(this.child.childId).subscribe(data=>{
+  
+  let myDiv = document.getElementById('image');
+  myDiv.style.borderStyle="solid";
+  if(data==3)
+  {
+    myDiv.style.borderColor = 'red';
+  }
+  else if(data==2)
+  {
+    myDiv.style.borderColor = 'white';
+    myDiv.style.borderStyle = "none";
+  }
+  
+  else {
+
+    myDiv.style.borderColor = 'greenyellow';
+    myDiv.style.borderStyle = "solid";
+  }
   debugger;
 })
 
@@ -40,7 +58,7 @@ this.childService.checkPresence(this.child.childId).subscribe(data=>{
       dialogRef.afterClosed().subscribe(result => {
         if (result == true) {
           this.childService.deletePresence(this.child.childId).subscribe(data=>{
-            
+
           })
           divElement.style.borderColor = 'white';
           divElement.style.borderStyle = "none";

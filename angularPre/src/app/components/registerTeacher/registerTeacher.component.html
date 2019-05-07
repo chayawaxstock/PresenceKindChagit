@@ -1,4 +1,3 @@
-
 <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title>רשום גננת חדשה</mat-card-title>
@@ -56,20 +55,22 @@
           </td>
         </tr>
         <tr>
-            <td>
-                <mat-form-field>
-                  <mat-select placeholder="בחר עיר " [(ngModel)]="city.cityId" name="name" style="text-align: right">
-                      <mat-option style="text-align: right" (onSelectionChange)="changeCity(option.cityId)" *ngFor="let option of cities" [value]="option.cityId">{{option.name}}</mat-option>
-                  </mat-select>
-                </mat-form-field>    
-            </td>
-              <td>
-                  <mat-form-field>
-                    <mat-select placeholder="בחר אזור " [(ngModel)]="newTeacher.areaId" name="name" style="text-align: right">
-                        <mat-option style="text-align: right" *ngFor="let option of city.areas" [value]="option.areaId">{{option.areaName}}</mat-option>
-                    </mat-select>
-                  </mat-form-field>    
-              </td>
+          <td>
+            <mat-form-field>
+              <mat-select placeholder="בחר עיר " [(ngModel)]="city.cityId" name="name" style="text-align: right">
+                <mat-option style="text-align: right" (onSelectionChange)="changeCity(option.cityId)"
+                  *ngFor="let option of cities" [value]="option.cityId">{{option.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-select placeholder="בחר אזור " [(ngModel)]="newTeacher.areaId" name="name" style="text-align: right">
+                <mat-option style="text-align: right" *ngFor="let option of city.areas" [value]="option.areaId">
+                  {{option.areaName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
         </tr>
         <tr>
           <td>
@@ -82,13 +83,20 @@
             </section>
           </td>
         </tr>
+        <tr *ngIf="isNewKindgarden">
+          <td>
+            {{newTeacher.kindergarten|json}}
+          </td>
+        </tr>
 
         <tr *ngIf="!isNewKindgarden">
           <td>
             <form class="example-form">
               <mat-form-field class="example-full-width" style="text-align: right">
-                <mat-select style="text-align: right" placeholder="בחר גן" [(ngModel)]="newTeacher.kindergartenId" name="name">
-                  <mat-option style="text-align: right" *ngFor="let Kinder of allKinderGardens" [value]="Kinder.kindergartenId">
+                <mat-select style="text-align: right" placeholder="בחר גן" [(ngModel)]="newTeacher.kindergartenId"
+                  name="name">
+                  <mat-option style="text-align: right" *ngFor="let Kinder of allKinderGardens"
+                    [value]="Kinder.kindergartenId">
                     {{Kinder.name}}
                   </mat-option>
                 </mat-select>

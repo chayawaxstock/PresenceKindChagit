@@ -5,7 +5,7 @@
 <ng-template #noImageFound>
     <img src="fallbackImage.png" alt="Fallbackimage">
 </ng-template> -->
-  <img #divElement src="../../../assets/11963148-happy-child-kids-group-have-fun-and-play-at-kindergarden-indoor-preschool-education-concept-with-tea.jpg"
+  <img id="image" #divElement src="../../../assets/11963148-happy-child-kids-group-have-fun-and-play-at-kindergarden-indoor-preschool-education-concept-with-tea.jpg"
     class="imageChild" (click)="clickImage(divElement)">
   <div class="centered">{{child.firstName}} {{child.lastName}} 
   </div>

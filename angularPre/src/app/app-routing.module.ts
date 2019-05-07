@@ -7,12 +7,14 @@ import { HomeComponent } from './components/home/home.component';
 import { WellcomeComponent } from './components/wellcome/wellcome.component';
 import { NewChildComponent } from './components/new-child/new-child.component';
 import { HomeParentComponent } from './components/home-parent/home-parent.component';
+import { NewKindergardenComponent } from './components/new-kindergarden/new-kindergarden.component';
 
 const routes: Routes = [
   { path: '', component: WellcomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterTeacherComponent },
   { path: 'registerChild', component: NewChildComponent },
+  { path: 'registerKinderGarden', component: NewKindergardenComponent },
   { path: 'home', component: HomeComponent,children:[
     { path: '', component: DashboardPresencesComponent },
     { path: 'dashboard-presences', component: DashboardPresencesComponent },
